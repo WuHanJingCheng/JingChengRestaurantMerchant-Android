@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:focusable="true" 
+    android:focusableInTouchMode="true"
+    android:background="@drawable/login_bg">
+    
+	<Button 
+	    android:id="@+id/bt_back"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="@dimen/x62"
+	    android:layout_marginLeft="@dimen/x40"
+	    android:background="@drawable/register_back"/>
+	<TextView 
+	    android:id="@+id/tv_back"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_toRightOf="@+id/bt_back"
+	    android:layout_marginTop="@dimen/x62"
+	    android:layout_marginLeft="@dimen/x20"
+	    android:textSize="16sp"
+	    android:text="返回登陆"/>
+	
+	<EditText 
+	    android:id="@+id/et_phoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/textcolor1"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="@dimen/x536"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/register_phonenumber"
+        android:drawablePadding="@dimen/x30"
+        android:textColor="@color/textcolor2"
+        android:hint="请输入手机号"
+        android:background="@drawable/login_edit_bg"
+        android:textSize="18sp"/>
+	
+	<EditText 
+	    android:id="@+id/et_verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/textcolor1"
+        android:layout_below="@+id/et_phoneNumber"
+        android:layout_marginTop="@dimen/x30"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/register_verify"
+        android:drawablePadding="@dimen/x30"
+        android:textColor="@color/textcolor2"
+        android:hint="请输入验证码"
+        android:background="@drawable/login_edit_bg"
+        android:textSize="18sp"/>
+	
+	<Button 
+	    android:id="@+id/bt_getVerify"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/register_bt_verify"
+	    android:text="获取验证码"
+	    android:textSize="12sp"
+	    android:layout_alignRight="@+id/et_verify"
+	    android:layout_alignBottom="@+id/et_verify"
+	    android:layout_marginBottom="@dimen/x41"
+	    android:layout_marginRight="@dimen/x20"/>
+	
+	<Button
+	    android:id="@+id/bt_next" 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:layout_below="@+id/bt_getVerify"
+	    android:layout_marginTop="@dimen/x60"
+	    android:text="下一步"
+	    android:gravity="center"
+	    android:textColor="@color/textcolor2"
+	    android:textSize="18sp"
+	    android:background="@drawable/register_bt_next"/>
+</RelativeLayout>
