@@ -56,14 +56,14 @@
         android:layout_below="@+id/navi"
         android:background="#B3AFAF"/>
     <LinearLayout 
-        android:id="@+id/menu1"
+        android:id="@+id/menu"
         android:layout_below="@+id/navi_line"
         android:layout_width="@dimen/x192"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/bg1">
     	    <LinearLayout 
-    	        android:id="@+id/menu1_wode"
+    	        android:id="@+id/menu_personal"
     	        android:layout_marginTop="@dimen/x70"
     	        android:gravity="center_horizontal"
     	        android:layout_width="match_parent"
@@ -83,7 +83,7 @@
     	            android:textSize="16sp"/>
     	    </LinearLayout>
     	    <LinearLayout 
-    	        android:id="@+id/menu1_caidan"
+    	        android:id="@+id/menu_caidan"
     	        android:layout_marginTop="@dimen/x100"
     	        android:gravity="center_horizontal"
     	        android:layout_width="match_parent"
@@ -98,7 +98,7 @@
 	    	            android:layout_centerHorizontal="true"
 	    	            android:src="@drawable/caidan"/>
 	    	        <ImageView 
-	    	            android:id="@+id/menu1_select1"
+	    	            android:id="@+id/menu_caidan_select"
 	    	            android:layout_width="wrap_content"
 	    	            android:layout_height="wrap_content"
 	    	            android:layout_alignParentRight="true"
@@ -115,7 +115,7 @@
     	            android:textSize="16sp"/>
     	    </LinearLayout>
     	    <LinearLayout 
-    	        android:id="@+id/menu1_dingdan"
+    	        android:id="@+id/menu_dingdan"
     	        android:layout_marginTop="@dimen/x100"
     	        android:gravity="center_horizontal"
     	        android:layout_width="match_parent"
@@ -130,7 +130,7 @@
 	    	            android:layout_centerHorizontal="true"
 	    	            android:src="@drawable/dingdan"/>
 	    	    	<ImageView 
-	    	            android:id="@+id/menu1_select2"
+	    	            android:id="@+id/menu_dingdan_select"
 	    	            android:layout_width="wrap_content"
 	    	            android:layout_height="wrap_content"
 	    	            android:layout_alignParentRight="true"
@@ -149,14 +149,14 @@
     	    </LinearLayout>
     </LinearLayout>
     <RelativeLayout 
-        android:id="@+id/menu2"
+        android:id="@+id/submenu"
         android:layout_below="@+id/navi_line"
-        android:layout_toRightOf="@+id/menu1"
+        android:layout_toRightOf="@+id/menu"
         android:layout_width="@dimen/x192"
         android:layout_height="match_parent"
         android:background="@color/white">
     	<RelativeLayout 
-    	    android:id="@+id/menu2_dish"
+    	    android:id="@+id/submenu_dish"
     	    android:layout_width="match_parent"
     	    android:layout_height="match_parent"
     	    android:visibility="gone">
@@ -184,7 +184,7 @@
 			        android:layout_marginTop="@dimen/x10"/>
 	  	    </LinearLayout>
 	   	<ListView 
-	        android:id="@+id/dishMenu_list"
+	        android:id="@+id/submenu_dish_list"
 	        android:divider="@null"
 	        android:layout_below="@+id/type_add"
 	        android:listSelector="@color/bg3"
@@ -194,24 +194,26 @@
 	        android:scrollbars="none"/>
     	</RelativeLayout>
     	<LinearLayout 
-    	    android:id="@+id/menu2_order"
+    	    android:id="@+id/submenu_order"
     	    android:layout_width="match_parent"
     	    android:layout_height="match_parent"
     	    android:orientation="vertical"
     	    android:visibility="gone">
     	     <LinearLayout 
-    	         android:id="@+id/all"
+    	         android:id="@+id/submenu_table_all"
 	  	        android:layout_width="match_parent"
 	  	        android:layout_height="wrap_content"
 	  	        android:orientation="vertical"
 	  	        android:layout_marginTop="@dimen/x40">
 	  	        <ImageView 
+	  	            android:id="@+id/all_iv"
 			        android:layout_marginTop="@dimen/x30"
 			        android:layout_width="wrap_content"
 			        android:layout_height="@dimen/x100"
 			        android:layout_gravity="center"
 			        android:src="@drawable/all"/>
 			    <TextView 
+			        android:id="@+id/all_tv"
 			        android:gravity="center"
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
@@ -221,18 +223,20 @@
 			        android:layout_marginTop="@dimen/x10"/>
 	  	    </LinearLayout>
     	     <LinearLayout 
-    	         android:id="@+id/jiucan"
+    	         android:id="@+id/submenu_table_occupied"
 	  	        android:layout_width="match_parent"
 	  	        android:layout_height="wrap_content"
 	  	        android:orientation="vertical"
 	  	        android:layout_marginTop="@dimen/x40">
 	  	        <ImageView 
+	  	            android:id="@+id/occupied_iv"
 			        android:layout_marginTop="@dimen/x30"
 			        android:layout_width="wrap_content"
 			        android:layout_height="@dimen/x100"
 			        android:layout_gravity="center"
-			        android:src="@drawable/jiucan"/>
+			        android:src="@drawable/occupied"/>
 			    <TextView 
+			        android:id="@+id/occupied_tv"
 			        android:gravity="center"
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
@@ -242,18 +246,20 @@
 			        android:layout_marginTop="@dimen/x10"/>
 	  	    </LinearLayout>
     	     <LinearLayout 
-    	         android:id="@+id/kongxian"
+    	         android:id="@+id/submenu_table__available"
 	  	        android:layout_width="match_parent"
 	  	        android:layout_height="wrap_content"
 	  	        android:orientation="vertical"
 	  	        android:layout_marginTop="@dimen/x40">
 	  	        <ImageView 
+	  	            android:id="@+id/available_iv"
 			        android:layout_marginTop="@dimen/x30"
 			        android:layout_width="wrap_content"
 			        android:layout_height="@dimen/x100"
 			        android:layout_gravity="center"
-			        android:src="@drawable/kongxian"/>
+			        android:src="@drawable/available"/>
 			    <TextView 
+			        android:id="@+id/available_tv"
 			        android:gravity="center"
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
@@ -263,18 +269,20 @@
 			        android:layout_marginTop="@dimen/x10"/>
 	  	    </LinearLayout>
     	     <LinearLayout 
-    	         android:id="@+id/jilu"
+    	         android:id="@+id/submenu_order_history"
 	  	        android:layout_width="match_parent"
 	  	        android:layout_height="wrap_content"
 	  	        android:orientation="vertical"
 	  	        android:layout_marginTop="@dimen/x40">
 	  	        <ImageView 
+	  	            android:id="@+id/history_iv"
 			        android:layout_marginTop="@dimen/x30"
 			        android:layout_width="wrap_content"
 			        android:layout_height="@dimen/x100"
 			        android:layout_gravity="center"
-			        android:src="@drawable/jilu"/>
+			        android:src="@drawable/history"/>
 			    <TextView 
+			        android:id="@+id/history_tv"
 			        android:gravity="center"
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
@@ -291,7 +299,7 @@
         android:layout_height="match_parent"
         android:background="@color/textcolor1"
         android:layout_below="@+id/navi_line"
-        android:layout_toRightOf="@+id/menu2"/>
+        android:layout_toRightOf="@+id/submenu"/>
     <FrameLayout
         android:id="@+id/fragment"
         android:layout_marginTop="@dimen/x10"

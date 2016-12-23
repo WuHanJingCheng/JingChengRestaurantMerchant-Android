@@ -2,11 +2,82 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    
      <RelativeLayout 
-        android:id="@+id/orderinfo_layout"
+        android:id="@+id/rl"
         android:layout_alignParentRight="true"
         android:layout_width="@dimen/x575"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <RelativeLayout 
+	        android:id="@+id/orderinfo_layout_out"
+	        android:layout_alignParentRight="true"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:background="@color/white">
+	        <TextView 
+	            android:id="@+id/out_tebleId"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textSize="@dimen/s40"
+	            android:textColor="@color/textcolor2"
+	            android:layout_marginTop="@dimen/x40"
+	            android:layout_marginLeft="@dimen/x30"
+	            android:text="桌号：002号"/>
+	        <TextView 
+	            android:id="@+id/out_text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textSize="@dimen/s40"
+	            android:layout_below="@+id/out_tebleId"
+	            android:layout_alignLeft="@+id/out_tebleId"
+	            android:textColor="@color/textcolor2"
+	            android:layout_marginTop="@dimen/x40"
+	            android:text="停用此桌"/>
+	        <Button
+	            android:id="@+id/out_bt" 
+	            android:layout_width="@dimen/x102"
+	            android:layout_height="@dimen/x62"
+	            android:layout_alignParentRight="true"
+	            android:layout_marginRight="@dimen/x44"
+	            android:layout_alignBottom="@+id/out_text"
+	            android:background="@drawable/out_bt_open"/>
+	        <View 
+	            android:id="@+id/out_line1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="@dimen/x1"
+	            android:layout_below="@+id/out_text"
+	            android:layout_marginTop="@dimen/x42"
+	            android:background="#B2AFAF"/>
+	        <ImageView 
+	            android:id="@+id/out_iv"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:layout_below="@+id/out_line1"
+	            android:background="@drawable/out_iv_bg"/>
+	        <ImageView 
+	            android:id="@+id/out_iv_info"
+	            android:layout_width="@dimen/x210"
+	            android:layout_height="@dimen/x374"
+	            android:layout_below="@+id/out_line1"
+	            android:layout_marginTop="@dimen/x263"
+	            android:layout_centerHorizontal="true"
+	            android:src="@drawable/out_iv_info_down"/>
+	        <TextView 
+	            android:id="@+id/out_tv_info"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_below="@+id/out_iv_info"
+	            android:layout_centerHorizontal="true"
+	            android:textColor="@color/textcolor2"
+	            android:layout_marginTop="@dimen/x42"
+	            android:text="餐桌信息"/>
+   		</RelativeLayout>
+        <RelativeLayout 
+            android:id="@+id/orderinfo_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
         <TextView 
             android:id="@+id/title"
             android:layout_centerHorizontal="true"
@@ -197,104 +268,84 @@
 	            android:layout_marginBottom="@dimen/x60"
 	            android:text="结账"/>
         	    
-        
+        </RelativeLayout>
           
     </RelativeLayout>
     <RelativeLayout 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toLeftOf="@+id/orderinfo_layout"
+        android:layout_toLeftOf="@+id/rl"
         android:background="@color/bg2">
         <RelativeLayout 
             android:id="@+id/comm"
             android:layout_marginTop="@dimen/x20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/p2"
+            <LinearLayout 
+                android:id="@+id/order_add_ll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x30"
-                android:layout_marginTop="@dimen/x10"
-                android:gravity="center"
-                android:layout_centerVertical="true"
-                android:text="2人桌"
-                android:textSize="16sp"
-                android:background="@drawable/option_bg"
-                android:textColor="@color/textcolor3"/>
-            <TextView
-                android:id="@+id/p4"
+                android:layout_marginLeft="@dimen/x20"
+                android:orientation="horizontal">
+	            <Button
+	                android:id="@+id/add_table" 
+	                android:layout_width="@dimen/x36"
+	                android:layout_height="@dimen/x36"
+	                android:background="@drawable/add_table"
+	                android:layout_centerVertical="true"/>
+	            <TextView 
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="添加"
+	                android:layout_toRightOf="@+id/add_table"
+	                android:textColor="@color/textcolor3"
+               		android:textSize="16sp"
+	                android:layout_marginLeft="@dimen/x20"/>
+            </LinearLayout>
+            <ImageView 
+                android:id="@+id/jiucan_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x30"
-                android:layout_marginTop="@dimen/x10"
                 android:layout_centerVertical="true"
-                android:text="4人桌"
-                android:layout_toRightOf="@+id/p2"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:background="@drawable/option_bg"
-                android:textColor="@color/textcolor3"/>
-            <TextView
-                android:id="@+id/p6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x30"
-                android:layout_marginTop="@dimen/x10"
-                android:layout_centerVertical="true"
-                android:text="6人桌"
-                android:layout_toRightOf="@+id/p4"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:background="@drawable/option_bg"
-                android:textColor="@color/textcolor3"/>
-            <Button
-                android:id="@+id/add_table" 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/add_table"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/p6"
-                android:layout_marginLeft="@dimen/x60"/>
+                android:layout_toRightOf="@+id/order_add_ll"
+                android:layout_marginLeft="@dimen/x112"
+                android:src="@drawable/jiucan_icon"/>
             
-            <TextView 
-                android:id="@+id/kongxian_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/x30"
-                android:textColor="@color/textcolor3"
-                android:textSize="16sp"
-                android:text="空闲"/>
-            <ImageView
-                android:id="@+id/kongxian_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/kongxian_text"
-                android:layout_marginRight="@dimen/x20"
-                android:src="@drawable/kongxian_icon"/>
             <TextView 
                 android:id="@+id/jiucan_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textcolor3"
-                 android:layout_centerVertical="true"
                 android:textSize="16sp"
-                android:layout_toLeftOf="@+id/kongxian_icon"
-                android:layout_marginRight="@dimen/x40"
+                android:layout_toRightOf="@+id/jiucan_iv"
+                android:layout_marginLeft="@dimen/x20"
+                 android:layout_centerVertical="true"
                 android:text="就餐中"/>
-            <ImageView 
+            
+            <ImageView
+                android:id="@+id/kongxian_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/jiucan_text"
-                android:layout_marginRight="@dimen/x20"
                 android:layout_centerVertical="true"
-                android:src="@drawable/jiucan_icon"/>
+                android:layout_toRightOf="@+id/jiucan_text"
+                android:layout_marginLeft="@dimen/x40"
+                android:src="@drawable/kongxian_icon"/>
+            <TextView 
+                android:id="@+id/kongxian_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/kongxian_iv"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_centerVertical="true"
+                android:textColor="@color/textcolor3"
+                
+                android:textSize="16sp"
+                android:text="空闲"/>
+            
+            
         </RelativeLayout>
 	        <GridView 
-	            android:id="@+id/grid_order"
+	            android:id="@+id/grid_table"
 	            android:layout_width="match_parent"
 	            android:layout_height="match_parent"
 	            android:layout_below="@+id/comm"

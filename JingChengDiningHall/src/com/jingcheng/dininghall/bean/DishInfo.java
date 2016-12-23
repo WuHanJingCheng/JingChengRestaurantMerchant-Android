@@ -14,14 +14,6 @@ public class DishInfo {
 		this.image = image;
 	}
 	
-	
-	public DishInfo(int dishId, String dishName, float price) {
-		super();
-		this.dishId = dishId;
-		this.dishName = dishName;
-		this.price = price;
-	}
-
 
 	public int getDishId() {
 		return dishId;

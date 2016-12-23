@@ -22,13 +22,13 @@ public class LoginActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		
-		forget = (TextView) findViewById(R.id.forget);
+//		forget = (TextView) findViewById(R.id.forget);
 		login = (Button) findViewById(R.id.bt_login);
-		register = (TextView) findViewById(R.id.register);
+//		register = (TextView) findViewById(R.id.register);
 		
-		forget.setOnClickListener(this);
+//		forget.setOnClickListener(this);
 		login.setOnClickListener(this);
-		register.setOnClickListener(this);
+//		register.setOnClickListener(this);
 	}
 
 	@Override
@@ -37,12 +37,12 @@ public class LoginActivity extends Activity implements OnClickListener {
 		case R.id.bt_login://µã»÷µÇÂ¼
 			startActivity(new Intent(this,MainActivity.class));
 			break;
-		case R.id.forget://Íü¼ÇÃÜÂë
-			Toast.makeText(this, "´ý¡£¡£", 0).show();
-			break;
-		case R.id.register://×¢²á
-			startActivity(new Intent(this,RegisterActivity.class));
-			break;
+//		case R.id.forget://Íü¼ÇÃÜÂë
+//			Toast.makeText(this, "´ý¡£¡£", 0).show();
+//			break;
+//		case R.id.register://×¢²á
+//			startActivity(new Intent(this,RegisterActivity.class));
+//			break;
 
 		default:
 			break;

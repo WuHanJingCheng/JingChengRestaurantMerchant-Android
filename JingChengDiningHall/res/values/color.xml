@@ -4,13 +4,17 @@
   	<color name="textcolor1">#999999</color> 
   	<color name="textcolor2">#1a1a1a</color> 
   	<color name="textcolor3">#4c4c4c</color> 
+  	<color name="textcolor4">#666666</color> 
   	
   	
   	<color name="bg1">#32323c</color> 
   	<color name="bg2">#F2F2F2</color> 
   	<color name="bg3">#00000000</color> 
+  	<color name="bg4">#cccccc</color> 
+  	<color name="bg5">#F2F0F0</color> 
   	
   	<color name="line1">#B2AFAF</color> 
+  	<color name="line2">#B3B3B3</color> 
   	
   	
   	

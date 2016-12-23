@@ -19,6 +19,11 @@
 <dimen name="s36">18sp</dimen>
 <dimen name="s38">19sp</dimen>
 <dimen name="s40">20sp</dimen>
+<dimen name="s42">21sp</dimen>
+<dimen name="s44">22sp</dimen>
+<dimen name="s46">23sp</dimen>
+<dimen name="s48">24sp</dimen>
+<dimen name="s50">25sp</dimen>
     
 <dimen name="x1">0.49dp</dimen>
 <dimen name="x2">0.99dp</dimen>

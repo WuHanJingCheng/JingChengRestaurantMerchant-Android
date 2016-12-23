@@ -1,10 +1,10 @@
 package com.jingcheng.dininghall.bean;
 
 public class OrderInfo {
-	private String name;
-	private float price;
-	private int count;
-	private Boolean push;
+	private String name;//菜品名称
+	private float price;//菜品价格
+	private int count;//点菜数量
+	private Boolean push;//是否上桌
 	
 	public OrderInfo(String name, float price, int count, Boolean push) {
 		super();

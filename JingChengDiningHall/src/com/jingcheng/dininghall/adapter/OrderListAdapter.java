@@ -1,6 +1,7 @@
 package com.jingcheng.dininghall.adapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.jingcheng.dininghall.bean.OrderInfo;
 import com.jingcheng.jingchengdininghall.R;
@@ -15,12 +16,12 @@ import android.widget.TextView;
 
 public class OrderListAdapter extends BaseAdapter {
 	private Context context;
-	private ArrayList<OrderInfo> list;
+	private List<OrderInfo> list;
 	private ViewHolder holder;
 	
 	
 	
-	public OrderListAdapter(Context context, ArrayList<OrderInfo> list) {
+	public OrderListAdapter(Context context, List<OrderInfo> list) {
 		super();
 		this.context = context;
 		this.list = list;

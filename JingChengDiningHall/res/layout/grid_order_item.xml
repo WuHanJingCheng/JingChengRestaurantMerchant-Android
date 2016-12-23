@@ -1,36 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/x177"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-	
-    <RelativeLayout 
-        android:id="@+id/table_info"
-        android:layout_width="@dimen/x177"
-        android:layout_height="@dimen/x177">
-	    <ImageView 
-	        android:id="@+id/table_bg"
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
-	        android:src="@drawable/table_jiucan"
-	        android:scaleType="fitXY"/>
+	<RelativeLayout 
+	    android:id="@+id/grid_table_item"
+	    android:layout_width="@dimen/x177"
+	    android:layout_height="wrap_content">
+	    <RelativeLayout 
+	        android:id="@+id/grid_table_info"
+	        android:layout_width="@dimen/x177"
+	        android:layout_height="@dimen/x177">
+		    <ImageView 
+		        android:id="@+id/grid_table_bg"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:src="@drawable/table_occupied"
+		        android:scaleType="fitXY"/>
+		    
+	    </RelativeLayout>
+	    
 	    <TextView 
-	        android:layout_width="@dimen/x80"
-	        android:layout_height="@dimen/x30"
-	        android:background="@drawable/table_people"
-	        android:gravity="center"
-	        android:layout_alignParentBottom="true"
-	        android:textColor="@color/white"
-	        android:textSize="10sp"
-	        android:layout_marginBottom="@dimen/x25"
-	        android:layout_centerHorizontal="true"
-	        android:text="2人桌"/>
-    </RelativeLayout>
-    
-    <TextView 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1号桌"
-        android:layout_marginTop="@dimen/x10"
-        android:layout_below="@+id/table_info"
-        android:layout_centerHorizontal="true"/>
+	        android:id="@+id/grid_tableId"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="1号桌"
+	        android:layout_marginTop="@dimen/x10"
+	        android:layout_below="@+id/grid_table_info"
+	        android:layout_centerHorizontal="true"/>
+	 </RelativeLayout>
 </RelativeLayout>

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     <LinearLayout 
+        android:id="@+id/grid_order_item"
         android:background="@drawable/history_order_bg"
         android:layout_width="@dimen/x310"
         android:layout_height="@dimen/x250"
@@ -13,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/x56"
             android:gravity="center_vertical"
+            android:textColor="@color/white"
             android:text="  订单号  dh12345"/>
         
         <LinearLayout 
@@ -37,16 +39,7 @@
 				        android:layout_height="match_parent"
 				        android:src="@drawable/history_table"
 				        android:scaleType="fitXY"/>
-				    <TextView 
-				        android:layout_width="@dimen/x65"
-				        android:layout_height="@dimen/x23"
-				        android:background="@drawable/history_people"
-				        android:gravity="center"
-				        android:layout_alignParentBottom="true"
-				        android:textSize="8sp"
-				        android:layout_marginBottom="@dimen/x20"
-				        android:layout_centerHorizontal="true"
-				        android:text="2人桌"/>
+				   
 			    </RelativeLayout>
 			    
 			    <TextView 
