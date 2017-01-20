@@ -10,11 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class BaseFragment extends Fragment {
-	@Override
-	public void onAttach(Context context) {
-		// TODO Auto-generated method stub
-		super.onAttach(context);
-	}
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

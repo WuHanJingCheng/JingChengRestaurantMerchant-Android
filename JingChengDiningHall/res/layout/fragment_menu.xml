@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@color/bg2">
+    android:background="@color/white">
     <GridView
         android:id="@+id/grid_menu"
         android:layout_margin="@dimen/x10"
@@ -11,7 +10,10 @@
         android:layout_height="match_parent"
         android:verticalSpacing="@dimen/x35"
         android:horizontalSpacing="@dimen/x42"
+    	android:background="@color/textcolor5"
+    	android:padding="@dimen/x10"
         android:numColumns="3">
 	 </GridView>
+	
 
-</LinearLayout>
+</RelativeLayout>

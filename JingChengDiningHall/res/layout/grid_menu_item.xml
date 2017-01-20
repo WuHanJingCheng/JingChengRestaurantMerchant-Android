@@ -18,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/x475"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/img_2"
             android:scaleType="fitXY"/>
         <TextView
             android:id="@+id/tv_dish_name"
@@ -62,7 +61,7 @@
         android:id="@+id/dish_add"
         android:layout_width="@dimen/x510"
         android:layout_height="@dimen/x670"
-        android:background="@drawable/dish_add"
+        android:background="@drawable/grid_item_bg_add"
         android:scaleType="fitXY"
         android:visibility="gone"/>
 </RelativeLayout>

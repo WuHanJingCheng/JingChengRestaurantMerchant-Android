@@ -1,39 +1,83 @@
 package com.jingcheng.dininghall.bean;
 
-public class Type {
-	private int resId;//分类图片
-	private int resId_down;//分类图片选中状态
-	private String subMenuName;//分类名
+import java.io.Serializable;
+
+public class Type implements Serializable{
+	private int typeId;//ID
+	private String PictureUrl;//分类图片
+	private String PictureUrlSelected;//分类图片选中状态
+	private String MenuName;//分类名
 	
-	public Type(int resId, int resId_down, String subMenuName) {
+	
+
+
+	public Type(int typeId, String pictureUrl, String pictureUrlSelected,
+			String menuName) {
 		super();
-		this.resId = resId;
-		this.resId_down = resId_down;
-		this.subMenuName = subMenuName;
+		this.typeId = typeId;
+		PictureUrl = pictureUrl;
+		PictureUrlSelected = pictureUrlSelected;
+		MenuName = menuName;
 	}
-	public int getResId_down() {
-		return resId_down;
+
+
+
+	public Type(String pictureUrl, String pictureUrlSelected, String menuName) {
+		super();
+		PictureUrl = pictureUrl;
+		PictureUrlSelected = pictureUrlSelected;
+		MenuName = menuName;
 	}
-	public void setResId_down(int resId_down) {
-		this.resId_down = resId_down;
+
+
+
+	public int getTypeId() {
+		return typeId;
 	}
-	public int getResId() {
-		return resId;
+
+
+
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
 	}
-	public void getResId(String pictureUrl) {
-		this.resId = resId;
+
+
+
+	public String getPictureUrl() {
+		return PictureUrl;
 	}
-	public String getSubMenuName() {
-		return subMenuName;
+
+
+
+	public void setPictureUrl(String pictureUrl) {
+		PictureUrl = pictureUrl;
 	}
-	public void setSubMenuName(String subMenuName) {
-		this.subMenuName = subMenuName;
+
+
+
+	public String getPictureUrlSelected() {
+		return PictureUrlSelected;
 	}
-	@Override
-	public String toString() {
-		return "Type [pictureUrl=" + resId + ", subMenuName="
-				+ subMenuName + "]";
+
+
+
+	public void setPictureUrlSelected(String pictureUrlSelected) {
+		PictureUrlSelected = pictureUrlSelected;
 	}
-	
+
+
+
+	public String getMenuName() {
+		return MenuName;
+	}
+
+
+
+	public void setMenuName(String menuName) {
+		MenuName = menuName;
+	}
+
+
+
 	
 }

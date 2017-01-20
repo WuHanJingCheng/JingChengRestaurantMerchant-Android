@@ -17,8 +17,8 @@
 	    android:text="编辑菜品"/>
 	<ImageView 
 	    android:id="@+id/editdish_image"
-	    android:layout_width="@dimen/x365"
-	    android:layout_height="@dimen/x295"
+	    android:layout_width="@dimen/x296"
+	    android:layout_height="@dimen/x296"
 	    android:layout_centerHorizontal="true"
 	    android:layout_below="@+id/editdish_title"
 	    android:layout_marginTop="@dimen/x55"

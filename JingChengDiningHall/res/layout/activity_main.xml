@@ -308,5 +308,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/navi_line"
-        android:layout_toRightOf="@+id/line"/>
+        android:layout_toRightOf="@+id/line"
+        android:visibility="gone"/>
+     <RelativeLayout 
+	     android:id="@+id/menu_loading"
+	     android:layout_width="match_parent"
+	     android:layout_height="match_parent"
+         android:layout_below="@+id/navi_line"
+         android:layout_toRightOf="@+id/line"
+         android:visibility="visible">
+	     <ImageView 
+	         android:id="@+id/menu_iv"
+	         android:layout_width="@dimen/x800"
+	         android:layout_height="@dimen/x800"
+	         android:layout_centerHorizontal="true"
+	         android:layout_marginBottom="@dimen/x20"/>
+	     <TextView 
+	         android:id="@+id/menu_tv"
+	         android:layout_below="@+id/menu_iv"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:layout_marginTop="@dimen/x10"
+	         android:layout_centerHorizontal="true"
+	         android:textSize="@dimen/s50"
+	         android:textColor="@color/textcolor2"
+	         android:text="正在加载..."/>
+	 </RelativeLayout>
 </RelativeLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@color/white">
+    
+	<RelativeLayout 
+	    android:id="@+id/sub_bar"
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/x100">
+	    <Button
+	        android:id="@+id/sub_bcak" 
+	        android:layout_width="@dimen/x44"
+	        android:layout_height="@dimen/x44"
+	        android:background="@drawable/sub_bcak"
+	        android:layout_marginLeft="@dimen/x40"
+	        android:layout_centerVertical="true"/>
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="类别管理"
+	        android:textColor="@color/textcolor2"
+	        android:textSize="@dimen/x40"
+			android:layout_centerInParent="true"/>
+	    <TextView 
+	        android:id="@+id/sub_setting"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="完成"
+	        android:textColor="#24a7eb"
+	        android:textSize="@dimen/s40"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="@dimen/x60"
+	        android:layout_centerVertical="true"/>
+	</RelativeLayout>
+	<GridView
+        android:id="@+id/sub_grid"
+        android:layout_below="@+id/sub_bar"
+        android:layout_margin="@dimen/x20"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="6"/>
+	
+	<ImageView 
+	    android:id="@+id/iviv"
+	    android:layout_width="@dimen/x800"
+	    android:layout_height="@dimen/x800"
+	    android:layout_marginTop="@dimen/x200"
+	    android:layout_below="@+id/sub_bar"
+	    android:layout_centerHorizontal="true"/>
+</RelativeLayout>

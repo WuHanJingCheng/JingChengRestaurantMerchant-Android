@@ -13,23 +13,71 @@
 	        android:id="@+id/add_submenu_title"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="添加分类"
+	        android:text="分类操作"
 	        android:layout_centerHorizontal="true"
 	       	android:textSize="@dimen/s42"
 	   		android:textColor="@color/textcolor2"
 	        android:layout_marginTop="@dimen/x48"/>
-	    <ImageView 
-	        android:id="@+id/add_submenu_iv"
-	        android:layout_width="@dimen/x365"
-	        android:layout_height="@dimen/x300"
-	        android:scaleType="fitXY"
-	        android:layout_centerHorizontal="true"
+	    <LinearLayout 
+	        android:id="@+id/icon_ll"
 	        android:layout_below="@+id/add_submenu_title"
 	        android:layout_marginTop="@dimen/x60"
-	        android:src="@drawable/add_submenu_iv"/>
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="@dimen/x124"
+	        android:layout_marginRight="@dimen/x124"
+	        android:layout_centerHorizontal="true"
+	        android:orientation="horizontal">
+	        <LinearLayout 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+		        android:layout_weight="1"
+	            android:orientation="vertical">
+		       <ImageView 
+		           android:id="@+id/icon"
+		           android:layout_height="@dimen/x196"
+		           android:layout_width="@dimen/x196"
+		           android:layout_gravity="center"
+		           android:background="@drawable/img_bg"/>
+		       <TextView 
+		           android:layout_width="wrap_content"
+		           android:layout_height="wrap_content"
+		           android:text="未选中状态"
+		           android:gravity="center"
+		           android:layout_gravity="center"
+		           android:layout_marginTop="@dimen/x20"
+		           android:textColor="@color/textcolor2"
+		           android:textSize="@dimen/s24"/>
+	            
+	        </LinearLayout>
+	        <LinearLayout 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+		        android:layout_weight="1"
+	            android:layout_marginLeft="@dimen/x40"
+	            android:orientation="vertical">
+		       <ImageView 
+		           android:id="@+id/icon_down"
+		           android:layout_height="@dimen/x196"
+		           android:layout_width="@dimen/x196"
+		           android:layout_gravity="center"
+		           android:background="@drawable/img_bg"/>
+		       <TextView 
+		           android:layout_width="wrap_content"
+		           android:layout_height="wrap_content"
+		           android:text="选中状态"
+		           android:gravity="center"
+		           android:layout_gravity="center"
+		           android:layout_marginTop="@dimen/x20"
+		           android:textColor="@color/textcolor2"
+		           android:textSize="@dimen/s24"/>
+	            
+	        </LinearLayout>
+	       
+	    </LinearLayout>
 	    <LinearLayout 
 	        android:id="@+id/add_submenu_ll1"
-	        android:layout_below="@+id/add_submenu_iv"
+	        android:layout_below="@+id/icon_ll"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="@dimen/x56"

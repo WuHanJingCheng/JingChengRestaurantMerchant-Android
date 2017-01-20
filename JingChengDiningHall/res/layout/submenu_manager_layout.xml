@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <RelativeLayout 
+        android:layout_width="@dimen/x335"
+        android:layout_height="@dimen/x335"
+        android:background="@drawable/submenu_manager_bg">
+        <RelativeLayout 
+            android:id="@+id/submenu_manager_show"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+	        <Button 
+	            android:id="@+id/submenu_manager_delete"
+	            android:layout_width="@dimen/x32"
+	            android:layout_height="@dimen/x32"
+	            android:background="@drawable/submenu_manager_delete"
+	            android:layout_alignParentRight="true"
+	            android:layout_marginTop="@dimen/x20"
+	            android:layout_marginRight="@dimen/x20"/>
+	        <ImageView 
+	            android:id="@+id/submenu_manager_img"
+	            android:layout_width="@dimen/x84"
+	            android:layout_height="@dimen/x84"
+	            android:layout_centerInParent="true"/>
+	        <TextView 
+	            android:id="@+id/submenu_manager_tv"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textSize="@dimen/s36"
+	            android:textColor="@color/textcolor2"
+	            android:layout_centerHorizontal="true"
+	            android:layout_alignParentBottom="true"
+	            android:layout_marginBottom="@dimen/x30"/>
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/submenu_manager_add" 
+            android:layout_width="@dimen/x84"
+            android:layout_height="@dimen/x84"
+            android:layout_centerInParent="true"
+            android:src="@drawable/submenu_manager_add"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</RelativeLayout>

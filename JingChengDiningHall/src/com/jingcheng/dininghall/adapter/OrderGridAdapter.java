@@ -78,7 +78,7 @@ public class OrderGridAdapter extends BaseAdapter {
 				holder.table_bg.setImageResource(R.drawable.table_available_dow);
 				fragment.updataOrderInfo(1);//更新右侧餐桌数据
 			}else{
-				holder.table_bg.setImageResource(R.drawable.table_availabl);
+				holder.table_bg.setImageResource(R.drawable.table_available);
 			}
 		}else if(tag == 2){//使用
 			if(position == select){
