@@ -55,7 +55,7 @@ public class MenuFragment extends BaseFragment {
 	    
 		options = new DisplayImageOptions.Builder()
 //        .showStubImage(R.drawable.img_2)  //设置加载时的图片
-        .showImageOnFail(R.drawable.img_7) //设置加载失败的图片
+        .showImageOnFail(R.drawable.image_error) //设置加载失败的图片/
         .cacheInMemory()//设置加载的图片缓存在内存中
         .cacheOnDisc()//设置加载的图片缓存在SD卡
 //        .displayer(new RoundedBitmapDisplayer(20))//设置成圆角图片

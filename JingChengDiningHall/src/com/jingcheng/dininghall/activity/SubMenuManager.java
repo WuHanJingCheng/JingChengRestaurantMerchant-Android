@@ -1,6 +1,9 @@
 package com.jingcheng.dininghall.activity;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -17,6 +20,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -39,6 +44,7 @@ import com.jingcheng.dininghall.adapter.SubMenuManagerAdapter.ViewHolder;
 import com.jingcheng.dininghall.bean.DishInfo;
 import com.jingcheng.dininghall.bean.Type;
 import com.jingcheng.dininghall.utils.BlobHelp;
+import com.jingcheng.dininghall.utils.ImageFactory;
 import com.jingcheng.dininghall.utils.RequestManager;
 import com.jingcheng.dininghall.utils.RequestManager.ReqCallBack;
 import com.jingcheng.jingchengdininghall.R;
@@ -55,6 +61,7 @@ public class SubMenuManager extends BaseActivity implements OnClickListener {
 	private File file_icon;
 	private File file_icon_down;
 	private String subMenuName;
+	private ImageFactory imgf = null;
 	
 	
 	private String MenuName = null;
@@ -66,7 +73,16 @@ public class SubMenuManager extends BaseActivity implements OnClickListener {
 			case 8://上传icon成功
 				if(PictureUrl == null && PictureUrlSelected == null){
 					PictureUrl = msg.getData().getString("URI");//图片URL
-					new BlobHelp(file_icon_down, subMenuName, handler).execute();
+					if(imgf == null){
+						imgf = new ImageFactory();
+					}
+					try {
+						imgf.ratioAndGenThumb(file_icon_down.getPath(), file_icon_down.getPath(),  84f, 84f,false);
+						new BlobHelp(file_icon_down, subMenuName, handler, MenuName).execute();
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}else if(PictureUrl != null && PictureUrlSelected == null){
 					PictureUrlSelected = msg.getData().getString("URI");//图片URL
 					Toast.makeText(SubMenuManager.this, "icon上传成功", 0).show();
@@ -152,6 +168,8 @@ public class SubMenuManager extends BaseActivity implements OnClickListener {
 			if(Integer.valueOf(errorMsg) == 404){
 				Toast.makeText(SubMenuManager.this, "数据为空", 0).show();
 				loadDisMiss();
+				menuList.clear();
+				initAdapter();
 			}
 		}
 	};
@@ -178,6 +196,11 @@ public class SubMenuManager extends BaseActivity implements OnClickListener {
 			}
 		}
 		
+		initAdapter();
+		loadDisMiss();
+	}
+	
+	private void initAdapter() {
 		if(sma == null){
 			sma = new SubMenuManagerAdapter(menuList,this,new OnButtonClickListener() {
 				
@@ -212,9 +235,8 @@ public class SubMenuManager extends BaseActivity implements OnClickListener {
 			});
 		}
 		sub_grid.setAdapter(sma);
-		loadDisMiss();
 	}
-	
+
 	/**
 	 * 描述：自定义弹窗
 	 */
@@ -367,7 +389,17 @@ public class SubMenuManager extends BaseActivity implements OnClickListener {
 				file_icon = new File(new URI(data.getStringExtra("icon")));
 				file_icon_down = new File(new URI(data.getStringExtra("icon_down")));
 				uploadLoading();
-				new BlobHelp(file_icon, subMenuName, handler).execute();
+				if(imgf == null){
+					imgf = new ImageFactory();
+				}
+				try {
+					imgf.ratioAndGenThumb(file_icon.getPath(), file_icon.getPath(),  84f, 84f,false);
+					new BlobHelp(file_icon, subMenuName, handler, MenuName).execute();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				
 			} catch (URISyntaxException e) {
 				// TODO Auto-generated catch block
@@ -375,6 +407,8 @@ public class SubMenuManager extends BaseActivity implements OnClickListener {
 			}
 		}
 	}
+	
+	
 	
 	/**
 	 * 描述：自定义上传load

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
+import java.util.Date;
 import java.util.UUID;
 
 import Decoder.BASE64Encoder;
@@ -28,15 +29,17 @@ public class BlobHelp extends AsyncTask<String, Void, Void> {
 
 	private File file;
 	private String subMenuName;
+	private String result_fileName;
 	private Handler handler;
 
 	private CloudBlockBlob blob;
 
 	private CloudBlobContainer container;
 	
-	public BlobHelp(File file,String subMenuName,Handler handler) {
+	public BlobHelp(File file,String subMenuName,Handler handler, String result_dishName) {
 		super();
 		this.file = file;
+		this.result_fileName = (new BASE64Encoder()).encode(result_dishName.getBytes());
 		this.subMenuName = (new BASE64Encoder()).encode(subMenuName.getBytes());
 //		this.subMenuName = subMenuName;
 		this.handler = handler;
@@ -81,9 +84,10 @@ public class BlobHelp extends AsyncTask<String, Void, Void> {
 //            container.create();
 
 			
+			String a = file.getPath();
+			long time = new Date().getTime();
 			
-
-            blob = container.getBlockBlobReference("android/"+subMenuName+"/"+file.getName());
+            blob = container.getBlockBlobReference("android/"+subMenuName+"/"+String.valueOf(time)+result_fileName+".png");
 //            File sourceFile = new File("c:\\myimages\\image1.jpg");
             blob.upload(new FileInputStream(file), file.length());
         }

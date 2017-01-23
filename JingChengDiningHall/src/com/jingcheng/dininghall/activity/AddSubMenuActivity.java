@@ -177,8 +177,8 @@ public class AddSubMenuActivity extends BaseActivity implements OnClickListener 
 	      //2.设置裁剪出来图片的格式：
 	      UCrop.Options options = new UCrop.Options();
 //	      options.setCompressionFormat(Bitmap.CompressFormat.WEBP);
-	      options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
-//	      options.setCompressionFormat(Bitmap.CompressFormat.PNG);
+//	      options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
+	      options.setCompressionFormat(Bitmap.CompressFormat.PNG);
 	      //4.设置裁剪图片的手势操作开关：
 	      options.setAllowedGestures(UCropActivity.SCALE, UCropActivity.NONE, UCropActivity.ALL);
 	      //5.设置将被载入裁剪图片的最大尺寸：

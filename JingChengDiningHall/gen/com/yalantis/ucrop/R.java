@@ -69,15 +69,15 @@ public final class R {
 	}
 	public static final class drawable {
 		public static final int ic_launcher = 0x7f020021;
-		public static final int ucrop_ic_angle = 0x7f020062;
-		public static final int ucrop_ic_crop = 0x7f020063;
-		public static final int ucrop_ic_cross = 0x7f020064;
-		public static final int ucrop_ic_done = 0x7f020065;
-		public static final int ucrop_ic_next = 0x7f020066;
-		public static final int ucrop_ic_reset = 0x7f020067;
-		public static final int ucrop_ic_rotate = 0x7f020068;
-		public static final int ucrop_ic_scale = 0x7f020069;
-		public static final int ucrop_shadow_upside = 0x7f02006a;
+		public static final int ucrop_ic_angle = 0x7f020063;
+		public static final int ucrop_ic_crop = 0x7f020064;
+		public static final int ucrop_ic_cross = 0x7f020065;
+		public static final int ucrop_ic_done = 0x7f020066;
+		public static final int ucrop_ic_next = 0x7f020067;
+		public static final int ucrop_ic_reset = 0x7f020068;
+		public static final int ucrop_ic_rotate = 0x7f020069;
+		public static final int ucrop_ic_scale = 0x7f02006a;
+		public static final int ucrop_shadow_upside = 0x7f02006b;
 	}
 	public static final class id {
 		public static final int action_settings = 0x7f0a00ab;

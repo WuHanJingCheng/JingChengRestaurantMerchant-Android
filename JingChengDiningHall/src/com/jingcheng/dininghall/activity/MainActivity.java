@@ -1,6 +1,7 @@
 package com.jingcheng.dininghall.activity;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -18,10 +19,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -44,19 +43,18 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
-import com.jingcheng.dininghall.adapter.SubMenuManagerAdapter.ViewHolder;
 import com.jingcheng.dininghall.bean.DishInfo;
 import com.jingcheng.dininghall.bean.TableInfo;
 import com.jingcheng.dininghall.bean.Type;
 import com.jingcheng.dininghall.fragment.MenuFragment;
 import com.jingcheng.dininghall.fragment.OrderFragment;
 import com.jingcheng.dininghall.utils.BlobHelp;
+import com.jingcheng.dininghall.utils.ImageFactory;
 import com.jingcheng.dininghall.utils.RequestManager;
 import com.jingcheng.dininghall.utils.RequestManager.ReqCallBack;
 import com.jingcheng.jingchengdininghall.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 public class MainActivity extends BaseActivity implements OnClickListener {
 	public static final String storageConnectionString =
@@ -110,8 +108,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private final int UPLOAD_ERROR = 7;//上传图片失败
 	private Intent resultData = null;
 	private boolean isFrist = true;
+	private String result_uri;
+	private String result_dishName;
+	private String result_dishPrice;
 	
 	private Handler handler = new Handler(){
+
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case MENU_OK://获取菜单分类成功
@@ -133,19 +135,16 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 				break;
 			case SUBMENU_ERROR://获取子菜单失败
 				replceMenu(0);
-				Toast.makeText(MainActivity.this, "获取失败，请检查网络", 0).show();
+				Toast.makeText(MainActivity.this, "未获取到菜品", 0).show();
 				loadDisMiss();
 				break;
 			case UPLOAD_OK://上传图片成功
-				String uri = msg.getData().getString("URI");//图片URL
-				
-				String dishName = resultData.getStringExtra("dishName");//获取菜名
-				String dishPrice = resultData.getStringExtra("dishPrice");//获取菜价格
+				result_uri = msg.getData().getString("URI");
 //					String json = "get";//          api/menu/264/dish
 //					String subMenuUrl = RequestManager.JINGCHENG+"api/menu/"+menuManage_select+"/dish";
 //					RequestManager.getInstance(this).requestAsyn(subMenuUrl,
 //							0, subMenuReqCallBack, json);
-				DishInfo dish = new DishInfo(dishName, dishPrice, uri);
+				DishInfo dish = new DishInfo(result_dishName, result_dishPrice, result_uri);
 				Gson gson = new Gson();
 				String rqt = gson.toJson(dish);
 				String subMenuUrl = RequestManager.JINGCHENG+"api/menu/"+menuManage_select+"/dish";
@@ -221,7 +220,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		list = new ArrayList<Type>();
 		
 		options = new DisplayImageOptions.Builder()
-        .showStubImage(R.drawable.img_2)  //设置加载时的图片
+//        .showStubImage(R.drawable.img_2)  //设置加载时的图片
         .showImageOnFail(R.drawable.img_7) //设置加载失败的图片
         .cacheInMemory()//设置加载的图片缓存在内存中
         .cacheOnDisc()//设置加载的图片缓存在SD卡
@@ -709,10 +708,25 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			Toast.makeText(this, "添加分类成功", 0).show();
 		}else if(resultCode == 8888){//添加菜品
 			try {
-				resultData = data;
-				file = new File(new URI(data.getStringExtra("dishImg")));
-				new BlobHelp(file, menuManage_select_name, handler).execute();
 				uploadLoading();
+				resultData = data;
+				result_dishName = resultData.getStringExtra("dishName");
+				result_dishPrice = resultData.getStringExtra("dishPrice");
+				file = new File(new URI(data.getStringExtra("dishImg")));
+				ImageFactory imgf = new ImageFactory();
+				String s = file.getPath();
+				String path = "/data/data/com.jingcheng.jingchengdininghall/cache/com"+file.getName();
+				
+				try {
+					imgf.ratioAndGenThumb(file.getPath(), file.getPath(),  365f, 295f,false);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					
+					e.printStackTrace();
+				}
+//				Bitmap bitmap = compressBitmap(BitmapFactory.decodeFile(file.getPath()),200);
+//				int byteCount = imgf.getBitmap(path).getByteCount();
+				new BlobHelp(file, menuManage_select_name, handler, result_dishName).execute();
 				
 			} catch (URISyntaxException e) {
 				// TODO Auto-generated catch block
@@ -720,6 +734,74 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			}
 		}
 	}
+	
+//	public void saveBitmapFile(Bitmap bitmap,File f){ 
+//		String name = "/data/data/com.jingcheng.jingchengdininghall/cache/com"+f.getName();
+////		String path = file.getPath();
+//		File file=new File(name);//将要保存图片的路径 
+//		try { 
+//			BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file)); 
+//			bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos); 
+//			bos.flush(); 
+//			bos.close(); 
+//		
+//		} catch (IOException e) { 
+//			dialog.dismiss();
+//			Toast.makeText(this, "压缩图片失败", 0).show();
+//			e.printStackTrace(); 
+//		} 
+//	}
+//	
+//	
+//	private Bitmap compressImage(Bitmap image) {  
+//		  
+//		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//		//质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中  
+//		image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+//		int options = 100;  
+//		//循环判断如果压缩后图片是否大于100kb,大于继续压缩 
+//		while ( baos.toByteArray().length / 1024>100) {
+//			//重置baos即清空baos 
+//			baos.reset();
+//			//这里压缩options%，把压缩后的数据存放到baos中  
+//			image.compress(Bitmap.CompressFormat.JPEG, options, baos);
+//			options -= 10;//每次都减少10  
+//		}  
+//		//把压缩后的数据baos存放到ByteArrayInputStream中  
+//		ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());
+//		
+//		BitmapFactory.Options opts = new BitmapFactory.Options();  
+//		opts.inJustDecodeBounds = true;
+//		Bitmap bmp = BitmapFactory.decodeFile(sourceImgPath, opts); 
+//		opts.inJustDecodeBounds = false;
+//		
+//		
+//		//把ByteArrayInputStream数据生成图片  
+//		Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);
+//		return bitmap;  
+//	}
+//	
+//	public static Bitmap compressBitmap(Bitmap image,int maxkb) {
+//		//L.showlog(压缩图片);
+//		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//		image.compress(Bitmap.CompressFormat.JPEG, 100, baos);// 质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
+//		int options = 100;
+////		Log.i(test,原始大小 + baos.toByteArray().length);
+//		int a = baos.toByteArray().length;
+//		while (baos.toByteArray().length / 1024 > maxkb || options > 10) { // 循环判断如果压缩后图片是否大于(maxkb)50kb,大于继续压缩
+//			int b = baos.toByteArray().length;
+////			Log.i(test,压缩一次!);
+//			baos.reset();// 重置baos即清空baos
+//			options -= 10;// 每次都减少10
+//			image.compress(Bitmap.CompressFormat.JPEG, options, baos);// 这里压缩options%，把压缩后的数据存放到baos中
+//		}
+////		Log.i(test,压缩后大小 + baos.toByteArray().length);
+//		ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());// 把压缩后的数据baos存放到ByteArrayInputStream中
+//		Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);// 把ByteArrayInputStream数据生成图片
+//		return bitmap;
+//	}
+//	
+	
 	
 	
 	private ReqCallBack postDishReqCallBack = new ReqCallBack() {
