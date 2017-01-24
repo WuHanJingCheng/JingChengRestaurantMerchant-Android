@@ -40,7 +40,7 @@ public class RequestManager {
     public static final int TYPE_DELETE = 3;//DELETE请求参数为json
 	/**
 	 * 根路径
-	 */
+	 */                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 	public static final String JINGCHENG = "http://jingchengrestaurant.azurewebsites.net/";
 	
 	

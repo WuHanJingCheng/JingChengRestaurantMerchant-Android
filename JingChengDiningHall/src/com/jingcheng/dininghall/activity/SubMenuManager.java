@@ -22,6 +22,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -133,6 +135,7 @@ public class SubMenuManager extends BaseActivity implements OnClickListener {
 		sub_bcak = (Button) findViewById(R.id.sub_bcak);
 		sub_setting = (TextView) findViewById(R.id.sub_setting);
 		sub_grid = (GridView) findViewById(R.id.sub_grid);
+		sub_grid.setSelector(new ColorDrawable(Color.TRANSPARENT));
 		img = (ImageView) findViewById(R.id.iviv);
 //		// º”‘ÿÕº∆¨
 //		Glide.with(this).load(R.drawable.loading).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(img);
